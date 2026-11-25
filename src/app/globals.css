@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Surface & Canvas Tokens */
+  --bg-canvas: #fafafa;
+  --bg-surface: #ffffff;
+  --bg-subtle: #f3f3f3;
+
+  /* Architectural Grid & Borders (High-definition 1px hairlines) */
+  --border-grid: #eaeaea;
+  --border-hairline: #d9d9d9;
+  --border-strong: #111111;
+
+  /* Typography Hierarchy */
+  --text-primary: #111111;
+  --text-secondary: #555555;
+  --text-muted: #666666;
+
+  /* Functional Accent: International Klein Blue */
+  --accent-klein: #002fa7;
+  --accent-klein-hover: #00227a;
+  --accent-klein-tint: rgba(0, 47, 167, 0.06);
+
+  /* Strict Typographic Rhythm */
+  --rhythm-unit: 8px;
+  --section-gap: clamp(4.5rem, 7vw, 6.5rem);
+  --container-max: 1200px;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  overflow-x: hidden;
+}
+
+/* Subtle Swiss architectural grid background */
+.swiss-grid-canvas {
+  background-color: var(--bg-canvas);
+  background-image:
+    linear-gradient(to right, var(--border-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-grid) 1px, transparent 1px);
+  background-size: 64px 64px;
+  background-position: top center;
+}
+
+/* Crisp focus outlines in Klein Blue for keyboard accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent-klein);
+  outline-offset: 2px;
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--accent-klein);
+  color: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
